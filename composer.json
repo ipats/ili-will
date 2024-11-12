@@ -25,7 +25,8 @@
         "ext-json": "*",
         "flightphp/core": "^3.0",
         "flightphp/runway": "^0.2 || ^1.1",
-        "tracy/tracy": "^2.9"
+        "tracy/tracy": "^2.9",
+        "twbs/bootstrap": "^5.3"
     },
     "config": {
         "process-timeout": 0,
@@ -39,7 +40,11 @@
 			"@php -r \"mkdir('app/middlewares/');\"",
 			"@php -r \"mkdir('app/cache/');\"",
 			"@php -r \"mkdir('app/log/');\""
-		]
+		],
+        "post-update-cmd": [
+            "rm -rf public/bootstrap",
+            "cp -R vendor/twbs/bootstrap/dist public/bootstrap"
+        ]
     },
     "require-dev": {
         "flightphp/tracy-extensions": "^0.1 || ^0.2"
